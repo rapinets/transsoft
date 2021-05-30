@@ -20,8 +20,9 @@ class ProductController extends Controller
      */
     public function listAction()
     {
-        $this->set('title', "Товари");
 
+
+        $this->set('title', "Товари");
         $products = $this->getModel('Product')
             ->initCollection()
             ->sort($this->getSortParams())
