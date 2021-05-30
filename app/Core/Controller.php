@@ -45,7 +45,7 @@ class Controller
      * @param $name
      * @return mixed
      */
-    public function getModel($name)
+    public function getModel($name): Model
     {
         $name = '\\Models\\' . ucfirst($name);
         $model = new $name();

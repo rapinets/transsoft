@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="86da2d50-cc72-478a-a2eb-d5f32df1b728" name="Default Changelist" comment="" />
+    <list default="true" id="86da2d50-cc72-478a-a2eb-d5f32df1b728" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Core/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Core/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/DB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +37,11 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1rzGEQs8uJeodSJmFrLigpRLYf7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -18,6 +49,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="F:/OSPanel/domains/livana" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
@@ -53,13 +85,37 @@
       <workItem from="1620762223210" duration="991000" />
       <workItem from="1621358682615" duration="11118000" />
       <workItem from="1621499133501" duration="4158000" />
+      <workItem from="1621507423152" duration="11707000" />
+      <workItem from="1621619826258" duration="3589000" />
+      <workItem from="1621762448930" duration="3491000" />
+      <workItem from="1621875441955" duration="1438000" />
+      <workItem from="1621961024247" duration="1888000" />
+      <workItem from="1622082166819" duration="3851000" />
+      <workItem from="1622284726838" duration="7916000" />
+      <workItem from="1622374530484" duration="21254000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622377559085">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1622377559085" />
     <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1621366435628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -68,13 +124,31 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1621361945133" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1621502097442">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1622286733985">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1621502097442" />
-    <state x="459" y="87" key="NewPhpClassDialog" timestamp="1621367417490">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1622286733985" />
+    <state x="459" y="87" key="NewPhpClassDialog" timestamp="1621514876332">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="459" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1621367417490" />
+    <state x="459" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1621514876332" />
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1621514519327">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1621514519327" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1622384768814">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1622384768814" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Core/Controller.php</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

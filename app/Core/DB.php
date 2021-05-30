@@ -45,6 +45,7 @@ class DB
     {
         $dbh = $this->getConnection();
         $stmt = $dbh->prepare($sql);
+
         $result = $stmt->execute($parameters);
 
         if ($result !== false)

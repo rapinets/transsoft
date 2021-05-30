@@ -1,6 +1,7 @@
 <?php
 namespace Models;
 
+use Core\DB;
 use Core\Model;
 
 /**
@@ -16,8 +17,8 @@ class Product extends Model
     {
         $this->table_name = "products";
         $this->id_column = "id";
+
     }
 
 
-   
 }

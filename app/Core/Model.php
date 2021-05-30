@@ -39,6 +39,7 @@ class Model implements DbModelInterface
         $columns = implode(',',$this->getColumns());
         $this->sql = "select $columns from " . $this->table_name ;
         return $this;
+
     }
 
     /**
@@ -53,6 +54,7 @@ class Model implements DbModelInterface
             array_push($this->columns,$result['Field']);
         }
         return $this->columns;
+
     }
 
 
@@ -62,23 +64,25 @@ class Model implements DbModelInterface
      */
     public function sort($params)
     {
-       /*
-              TODO
-              return $this;
-        */
+        if($count = count($params)) {
+            $sql = " ORDER BY ";
+            foreach ($params as $name => $order) {
+                $sql .= $name . ' ' . $order . ', ';
+            }
+            $sql = rtrim($sql, ' ,');
+            $this->sql .= $sql;
+        }
+
         return $this;
     }
 
-    /**
+    /*
      * @param $params
      */
+
     public function filter($params)
     {
-       /*
-              TODO
-              return $this;
-        */
-        
+        return $this;
     }
 
     /**
@@ -88,9 +92,11 @@ class Model implements DbModelInterface
     {
         $db = new DB();
         $this->sql .= ";";
+
         $this->collection = $db->query($this->sql, $this->params);
         return $this;
     }
+
 
     /**
      * @return mixed
@@ -98,6 +104,7 @@ class Model implements DbModelInterface
     public function select()
     {
         return $this->collection;
+
     }
 
     /**
@@ -157,4 +164,6 @@ class Model implements DbModelInterface
     {
         return 1;
     }
+
+
 }
