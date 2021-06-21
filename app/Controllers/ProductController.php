@@ -4,11 +4,13 @@ namespace Controllers;
 use Core\Controller;
 use Core\View;
 
+
 /**
  * Class ProductController
  */
 class ProductController extends Controller
 {
+
     public function indexAction()
     {
         $this->forward('product/list');
@@ -64,7 +66,14 @@ class ProductController extends Controller
             $this->set('saved', 1);
             $model->saveItem($id,$values);
         }
-        $this->set('product', $model->getItem($this->getId()));
+        if ($this->getSku()){
+            $this->set('product', $model->getField($this->getSku()));
+            echo "record saved";
+        } else {
+            $this->set('product', $model->getItem($this->getId()));
+        }
+
+
 
         $this->renderLayout();
     }
@@ -74,13 +83,27 @@ class ProductController extends Controller
      */
     public function addAction()
     {
-
-        $model = $this->getModel('Product');
         $this->set("title","Додавання товару");
+        $model = $this->getModel('Product');
         if ($values = $model->getPostValues()) {
+
             $model->addItem($values);
+            $sku = $values['sku'];
+            $this->redirect("/product/edit", array('sku' => $sku));
+            echo "record saved ";
         }
+
         $this->renderLayout();
+
+    }
+
+
+
+    public function deleteAction()
+    {
+        $model = $this->getModel('Product');
+        $model->deleteItem();
+        $this->redirect('/product/list');
     }
 
     /**
@@ -141,6 +164,8 @@ class ProductController extends Controller
         return array($sort, $order);
     }
 
+
+
     /**
      * @return mixed
      */
@@ -155,6 +180,11 @@ class ProductController extends Controller
         }
         */
         return filter_input(INPUT_GET, 'id');
+    }
+
+    public function getSku()
+    {
+        return filter_input(INPUT_GET, 'sku');
     }
     
     

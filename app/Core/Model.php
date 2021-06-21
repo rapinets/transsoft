@@ -14,6 +14,7 @@ class Model implements DbModelInterface
      * @var
      */
     protected $id_column;
+
     /**
      * @var array
      */
@@ -26,10 +27,13 @@ class Model implements DbModelInterface
      * @var
      */
     protected $sql;
+
     /**
      * @var array
      */
     protected $params = [];
+
+    protected $values = [];
 
     /**
      * @return $this
@@ -122,8 +126,17 @@ class Model implements DbModelInterface
     public function getItem($id)
     {
         $sql = "select * from $this->table_name where $this->id_column = ?;";
+
         $db = new DB();
         $params = array($id);
+        return $db->query($sql, $params)[0];
+    }
+
+    public function getField($sku)
+    {
+        $sql = "select * from $this->table_name where  sku = ?";
+        $db = new DB();
+        $params = array($sku);
         return $db->query($sql, $params)[0];
     }
 
@@ -148,6 +161,30 @@ class Model implements DbModelInterface
 
         }
         return $values;
+
+    }
+
+    public function addItem($values)
+    {
+
+        $db = new DB();
+        $sql = "insert into $this->table_name (sku, name, price, qty, description)  values (:sku, :name, :price, :qty, :description)";
+        $db->query($sql, $values);
+
+    }
+
+    public function saveItem($id, $values)
+    {
+        $db = new DB();
+        $sql = "update $this->table_name set sku = :sku, name = :name, price = :price, qty = :qty, description = :description where id = $id";
+
+        $db->query($sql, $values);
+    }
+
+    public function deleteItem()
+    {
+        $db = new DB();
+        $db->deleteEntity($this);
     }
 
     public function getTableName(): string
@@ -162,8 +199,12 @@ class Model implements DbModelInterface
 
     public function getId()
     {
-        return 1;
+        return filter_input(INPUT_GET, 'id');
     }
 
+    public function getSku()
+    {
+        return filter_input(INPUT_GET, 'sku');
+    }
 
 }

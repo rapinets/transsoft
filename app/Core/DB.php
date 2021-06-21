@@ -67,6 +67,6 @@ class DB
         );
         $statement = $dbh->prepare($sql);
 
-        $statement->execute($model->getId());
+        $statement->execute([$model->getId()]);
     }
 }
