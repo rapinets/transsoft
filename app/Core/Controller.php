@@ -24,6 +24,20 @@ class Controller
         return $this->data[$key];
     }
 
+    protected function redirect($route, $params = [])
+    {
+        $server_host = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
+        if (!empty($params)) {
+            $firts_key = array_keys($params)[0];
+            foreach($params as $key=>$value) {
+                $route .= ($key === $firts_key ? '?' : '&');
+                $route .= "$key=$value";
+            }
+        }
+        $url = $server_host . route::getBP() . $route;
+        header("Location: $url");
+    }
+
     public function renderLayout()
     {
         $this->set('menuCollection',$this->getMenuCollection());

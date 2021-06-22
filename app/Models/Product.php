@@ -9,6 +9,7 @@ use Core\Model;
  */
 class Product extends Model
 {
+    protected $values = [];
 
     /**
      * Product constructor.
@@ -19,6 +20,7 @@ class Product extends Model
         $this->id_column = "id";
 
     }
+
 
 
 }
