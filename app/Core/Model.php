@@ -1,11 +1,15 @@
 <?php
 namespace Core;
 
+use Traits\Filter;
+
 /**
  * Class Model
  */
 class Model implements DbModelInterface
 {
+    use Filter;
+
     /**
      * @var
      */

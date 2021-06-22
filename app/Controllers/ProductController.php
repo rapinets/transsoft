@@ -3,6 +3,7 @@ namespace Controllers;
 
 use Core\Controller;
 use Core\View;
+use Traits\Filter;
 
 
 /**
@@ -10,6 +11,7 @@ use Core\View;
  */
 class ProductController extends Controller
 {
+    use Filter;
 
     public function indexAction()
     {
@@ -61,11 +63,15 @@ class ProductController extends Controller
         $this->set('saved', 0);
         $this->set("title", "Редагування товару");
         $id = filter_input(INPUT_POST, 'id');
+
         if ($id) {
             $values = $model->getPostValues();
+            $args = $this->productFilter();
+            $filterValues = filter_var_array($values, $args);
             $this->set('saved', 1);
-            $model->saveItem($id,$values);
+            $model->saveItem($id, $filterValues);
         }
+
         if ($this->getSku()){
             $this->set('product', $model->getField($this->getSku()));
             echo "record saved";
@@ -86,11 +92,12 @@ class ProductController extends Controller
         $this->set("title","Додавання товару");
         $model = $this->getModel('Product');
         if ($values = $model->getPostValues()) {
-
-            $model->addItem($values);
-            $sku = $values['sku'];
+            $args = $this->productFilter();
+            $filterValues = filter_var_array($values, $args);
+            $model->addItem($filterValues);
+            $sku = $filterValues['sku'];
             $this->redirect("/product/edit", array('sku' => $sku));
-            echo "record saved ";
+
         }
 
         $this->renderLayout();
@@ -186,6 +193,11 @@ class ProductController extends Controller
     {
         return filter_input(INPUT_GET, 'sku');
     }
-    
+
+    public function cleanPostValues()
+    {
+        $model = $this->getModel('Product');
+        $values = $model->getPostValues();
+    }
     
 }
