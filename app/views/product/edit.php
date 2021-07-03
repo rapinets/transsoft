@@ -17,7 +17,7 @@
     <input type="text" name="qty" value="<?php echo $item['qty'] ?>">
 
     <label for="description">description</label>
-    <input type="text" name="description" value="<?php echo $item['description'] ?>">
+    <input type="text" name="description" value="<?php echo htmlspecialchars_decode($item['description']) ?>">
 
 
     <input type="submit" value="Submit">

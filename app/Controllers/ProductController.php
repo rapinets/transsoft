@@ -3,7 +3,7 @@ namespace Controllers;
 
 use Core\Controller;
 use Core\View;
-use Traits\Filter;
+use Traits\EnumeratesValues;
 
 
 /**
@@ -11,7 +11,7 @@ use Traits\Filter;
  */
 class ProductController extends Controller
 {
-    use Filter;
+    use EnumeratesValues;
 
     public function indexAction()
     {
@@ -24,15 +24,30 @@ class ProductController extends Controller
      */
     public function listAction()
     {
+        // get min and max prices
+        $minAndMaxPrices = $this->getModel('Product')->maxAndMinPrices();
 
+        // set min price to view
+        $min =  filter_input(INPUT_POST, 'min_price') ??  $minAndMaxPrices['min'];
+        $this->set('min_price', $min);
 
+        // set max price to view
+        $max = filter_input(INPUT_POST, 'max_price') ?? $minAndMaxPrices['max'];
+        $this->set('max_price', $max);
+
+        // set page title
         $this->set('title', "Товари");
+
         $products = $this->getModel('Product')
             ->initCollection()
+            ->whereBetween('price', $min, $max)
             ->sort($this->getSortParams())
             ->getCollection()
             ->select();
+
+        // set products to view
         $this->set('products', $products);
+
 
         $this->renderLayout();
     }
@@ -131,9 +146,16 @@ class ProductController extends Controller
         } else {
             $params['qty'] = 'ASC';
         }
-        
-        return $params;
 
+        return $params;
+    }
+
+    public function betweenParams()
+    {
+        $params = [];
+        $params['price'] = filter_input(INPUT_POST, 'price');
+        $params['max'] = filter_input(INPUT_POST, 'max-price');
+        return $params;
     }
 
     /**
@@ -192,12 +214,6 @@ class ProductController extends Controller
     public function getSku()
     {
         return filter_input(INPUT_GET, 'sku');
-    }
-
-    public function cleanPostValues()
-    {
-        $model = $this->getModel('Product');
-        $values = $model->getPostValues();
     }
     
 }

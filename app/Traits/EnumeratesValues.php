@@ -2,12 +2,12 @@
 
 namespace Traits;
 
-trait Filter
+trait EnumeratesValues
 {
 
     public function productFilter()
     {
-        $this->productValidate = [
+         [
             'sku' => [
                 'filter' => FILTER_SANITIZE_SPECIAL_CHARS,
 
@@ -25,7 +25,7 @@ trait Filter
                 'filter' => FILTER_SANITIZE_NUMBER_FLOAT
             ],
             'description' => [
-                'filter' => FILTER_SANITIZE_SPECIAL_CHARS,
+                'filter' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
 
             ]
         ];

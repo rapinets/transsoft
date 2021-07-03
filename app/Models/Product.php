@@ -21,6 +21,13 @@ class Product extends Model
 
     }
 
+    // get max and min prices
+    public function maxAndMinPrices()
+    {
+        $this->sql = "SELECT MIN(price) AS min, MAX(price) AS max FROM " . $this->table_name;
+        return $this->getCollection()->select()[0];
+    }
+
 
 
 }

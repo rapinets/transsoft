@@ -1,14 +1,14 @@
 <?php
 namespace Core;
 
-use Traits\Filter;
+use Traits\EnumeratesValues;
 
 /**
  * Class Model
  */
 class Model implements DbModelInterface
 {
-    use Filter;
+    use EnumeratesValues;
 
     /**
      * @var
@@ -65,7 +65,6 @@ class Model implements DbModelInterface
 
     }
 
-
     /**
      * @param $params
      * @return $this
@@ -79,10 +78,31 @@ class Model implements DbModelInterface
             }
             $sql = rtrim($sql, ' ,');
             $this->sql .= $sql;
+
         }
 
         return $this;
     }
+
+    public function where($name, $value, $operator = '=')
+    {
+        $this->sql .= " WHERE " . $name . $operator . $value;
+        return $this;
+    }
+
+    public function andWhere($name, $value, $operator = '=')
+    {
+        //
+        return $this;
+    }
+
+    public function whereBetween($name, $min, $max)
+    {
+        $this->sql .= " WHERE " . $name . " BETWEEN " . $min . " AND " . $max;
+        return $this;
+    }
+
+
 
     /*
      * @param $params

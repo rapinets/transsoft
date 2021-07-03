@@ -44,6 +44,11 @@ class View
         return $this->data[$key];
     }
 
+    public function __get($name)
+    {
+        return $this->get($name);
+    }
+
     /**
      * @return string
      */

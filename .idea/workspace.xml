@@ -20,11 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86da2d50-cc72-478a-a2eb-d5f32df1b728" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Traits/Filter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/product/store.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/View.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/Filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/EnumeratesValues.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/etc/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/etc/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/product/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/product/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/product/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/product/list.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +115,16 @@
       <workItem from="1624180585769" duration="1813000" />
       <workItem from="1624263820400" duration="7696000" />
       <workItem from="1624285899772" duration="11028000" />
-      <workItem from="1624337665501" duration="4317000" />
+      <workItem from="1624337665501" duration="5825000" />
+      <workItem from="1624553208962" duration="2445000" />
+      <workItem from="1624716620462" duration="985000" />
+      <workItem from="1624779378423" duration="18231000" />
+      <workItem from="1624818412846" duration="2242000" />
+      <workItem from="1624823942734" duration="1931000" />
+      <workItem from="1624904253919" duration="3015000" />
+      <workItem from="1624993666771" duration="655000" />
+      <workItem from="1625163128673" duration="4718000" />
+      <workItem from="1625250988477" duration="9339000" />
     </task>
     <servers />
   </component>
@@ -139,14 +152,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1621366435628" />
+    <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1624905055431">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1624905055431" />
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1621361945133">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1621361945133" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1624294729352">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1624904560713">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1624294729352" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1624904560713" />
     <state x="459" y="87" key="NewPhpClassDialog" timestamp="1624122021423">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -155,6 +172,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="417" y="258" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1624309363108" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1625166554401">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1625166554401" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1622384768814">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
