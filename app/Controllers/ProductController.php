@@ -1,6 +1,9 @@
 <?php
 namespace Controllers;
 
+
+
+use Cookies\Cookie;
 use Core\Controller;
 use Core\View;
 use Traits\EnumeratesValues;
@@ -15,8 +18,8 @@ class ProductController extends Controller
 
     public function indexAction()
     {
-        $this->forward('product/list');
 
+        $this->forward('product/list');
     }
 
     /**
@@ -28,7 +31,8 @@ class ProductController extends Controller
         $minAndMaxPrices = $this->getModel('Product')->maxAndMinPrices();
 
         // set min price to view
-        $min =  filter_input(INPUT_POST, 'min_price') ??  $minAndMaxPrices['min'];
+
+        $min =filter_input(INPUT_POST, 'min_price') ??  $minAndMaxPrices['min'];
         $this->set('min_price', $min);
 
         // set max price to view
@@ -135,26 +139,26 @@ class ProductController extends Controller
     {
         $params = [];
         $sortfirst = filter_input(INPUT_POST, 'sortfirst');
+        
         if ($sortfirst === "price_DESC") {
             $params['price'] = 'DESC';
         } else {
             $params['price'] = 'ASC';
         }
+
         $sortsecond = filter_input(INPUT_POST, 'sortsecond');
+        
         if ($sortsecond === "qty_DESC") {
             $params['qty'] = 'DESC';
         } else {
             $params['qty'] = 'ASC';
         }
-
-        return $params;
-    }
-
-    public function betweenParams()
-    {
-        $params = [];
-        $params['price'] = filter_input(INPUT_POST, 'price');
-        $params['max'] = filter_input(INPUT_POST, 'max-price');
+        $cookie = new Cookie($params);
+        $cookie->setParams();
+        if(isset($cookie)){
+            $params = $cookie->getParams();
+        }
+        
         return $params;
     }
 
@@ -215,5 +219,11 @@ class ProductController extends Controller
     {
         return filter_input(INPUT_GET, 'sku');
     }
-    
+/*
+ *
+ * form->post->get
+ *
+ *
+ * */
 }
+

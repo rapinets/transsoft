@@ -1,6 +1,8 @@
 <?php
 namespace Core;
 
+use Middleware\Helper;
+
 /**
  * Class Controller
  */
@@ -12,6 +14,9 @@ class Controller
     {
         $this->set('layoutPath', App::getLayoutDir() . DS. 'layout.php');
         $this->set('menuPath', App::getViewDir() . DS. 'menu.php');
+
+
+        $this->set('customer', Helper::getCustomer() ?? null);
     }
 
     protected function set($key, $value)
@@ -61,9 +66,7 @@ class Controller
      */
     public function getModel($name): Model
     {
-        $name = '\\Models\\' . ucfirst($name);
-        $model = new $name();
-        return $model;
+        return Helper::getModel($name);
     }
 
      /**

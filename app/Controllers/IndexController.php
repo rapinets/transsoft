@@ -2,7 +2,8 @@
 namespace Controllers;
 
 use Core\Controller;
-use Models\Phone;
+use Middleware\Helper;
+
 
 /**
  * Class IndexController
@@ -16,7 +17,7 @@ class IndexController extends Controller
     public function indexAction()
     {
         $this->set("title", "Test shop");
-
+        Helper::getCustomer();
         $this->forward('index/test');
     }
 

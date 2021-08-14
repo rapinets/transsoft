@@ -5,8 +5,10 @@ namespace Core;
 
 use Core\Url;
 
+
 class View
 {
+
 
     /** @var array */
     private $data;

@@ -1,14 +1,14 @@
 <?php
 namespace Core;
 
-use Traits\EnumeratesValues;
+
 
 /**
  * Class Model
  */
 class Model implements DbModelInterface
 {
-    use EnumeratesValues;
+
 
     /**
      * @var
@@ -86,13 +86,13 @@ class Model implements DbModelInterface
 
     public function where($name, $value, $operator = '=')
     {
-        $this->sql .= " WHERE " . $name . $operator . $value;
+        $this->sql .= " WHERE `" . $name . "` " . $operator . '"' .  $value . '"';
         return $this;
     }
 
     public function andWhere($name, $value, $operator = '=')
     {
-        //
+        $this->sql .= " AND `" . $name . "` " . $operator . '"' .  $value . '"';
         return $this;
     }
 
@@ -108,8 +108,20 @@ class Model implements DbModelInterface
      * @param $params
      */
 
-    public function filter($params)
-    {
+    public function filter($params = []){
+
+
+        $sql = " WHERE ";
+        if (count($params)){
+            foreach ($params as $name => $value){
+                $sql .= $name . " = " . $value . " AND ";
+            }
+        }
+
+        $sql = explode(' ', $sql);
+        array_splice($sql, -1);
+        $this->sql .= implode(' ', $sql);
+
         return $this;
     }
 
@@ -120,6 +132,8 @@ class Model implements DbModelInterface
     {
         $db = new DB();
         $this->sql .= ";";
+
+//        var_dump($this->sql);
 
         $this->collection = $db->query($this->sql, $this->params);
         return $this;
@@ -178,7 +192,7 @@ class Model implements DbModelInterface
             }
              * 
              */
-            $column_value = filter_input(INPUT_POST, $column);
+            $column_value = filter_input(INPUT_POST, $column, FILTER_SANITIZE_STRING);
             if ($column_value && $column !== $this->id_column ) {
                 $values[$column] = $column_value;
             }
@@ -224,11 +238,6 @@ class Model implements DbModelInterface
     public function getId()
     {
         return filter_input(INPUT_GET, 'id');
-    }
-
-    public function getSku()
-    {
-        return filter_input(INPUT_GET, 'sku');
     }
 
 }

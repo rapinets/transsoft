@@ -8,6 +8,11 @@ use Core\Model;
  */
 class User extends Model
 {
+    public function __construct()
+    {
+        $this->table_name = $this->getName();
+        $this->id_column = 'customer_id';
+    }
 
     /**
      * @return string
